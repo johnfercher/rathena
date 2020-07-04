@@ -169,6 +169,21 @@ matrix:
       env:
          - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
          - CONFIGURE_FLAGS="--enable-prere=no --enable-vip=no --enable-buildbot=yes"
+# MdBook Doc
+    - language: rust
+      before_script:
+          - (test -x $HOME/.cargo/bin/cargo-install-update || cargo install cargo-update)
+          - (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.2" mdbook)
+          - cargo install-update -a
+      script:
+          - mdbook build
+      deploy:
+          provider: pages
+          skip_cleanup: true
+          github-token: $GITHUB_TOKEN
+          local_dir: doc/book
+          on:
+              branch: master
 
 before_install:
     - eval "${MATRIX_EVAL}"
@@ -193,6 +208,9 @@ env:
     - DB_NAME="ragnarok"
     - DB_USER="ragnarok"
     - DB_PASS="ragnarok"
+
+cache:
+    - cargo
 
 notifications:
   email: false
