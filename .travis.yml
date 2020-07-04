@@ -176,12 +176,14 @@ matrix:
           - (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.2" mdbook)
           - cargo install-update -a
       script:
+          - cd doc
+          - cd book
           - mdbook build
       deploy:
           provider: pages
           skip_cleanup: true
           github-token: $GITHUB_TOKEN
-          local_dir: doc/book
+          local_dir: doc/book/book
           on:
               branch: master
 
