@@ -1,0 +1,1434 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Index</a></li><li class="chapter-item expanded "><a href="glossary.html"><strong aria-hidden="true">2.</strong> Glossary</a></li><li class="chapter-item expanded "><a href="effect_list.html"><strong aria-hidden="true">3.</strong> Effect List</a></li><li class="chapter-item expanded "><a href="ea_job_system.html"><strong aria-hidden="true">4.</strong> eAthena Job System</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#index" id="index">Index</a></h1>
+<ul>
+<li><a href="index.html">Index</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+<li><a href="effect_list.html">Effect List</a></li>
+<li><a href="ea_job_system.html">eAthena Job System</a></li>
+</ul>
+<h1><a class="header" href="#glossary" id="glossary">Glossary</a></h1>
+<table><thead><tr><th align="center">Abbreviation</th><th align="center">Description</th></tr></thead><tbody>
+<tr><td align="center">eA</td><td align="center">eAthena</td></tr>
+</tbody></table>
+<h1><a class="header" href="#effects-list" id="effects-list">Effects List</a></h1>
+<p><img src="https://img.shields.io/badge/Last%20Updated-2017%2F10%2F11-blue" alt="last_updated" /> <img src="https://img.shields.io/badge/Docs-Client%20Effects%20List-orange" alt="docs" /> <img src="https://img.shields.io/badge/By-rAthena%20Dev%20Team-red" alt="by" /></p>
+<h3><a class="header" href="#description" id="description">Description</a></h3>
+<p>A list of client-side effects sorted by ID.</p>
+<h3><a class="header" href="#details" id="details">Details</a></h3>
+<p>The following is a compiled list of visual and sound effects which the client
+can produce when receiving a packet with id <code>0x1f3</code> (01f3 <ID>.l <type>.l).
+Each list entry contains a number and a short description of the effect.
+You can produce these effects ingame by doing &quot;@effect <number>&quot;.
+It's also possible to attach effects to item/npc scripts by using 'misceffect'.</p>
+<h3><a class="header" href="#effects" id="effects">Effects</a></h3>
+<table><thead><tr><th align="center">Number</th><th align="center">Description</th></tr></thead><tbody>
+<tr><td align="center">0</td><td align="center">Regular Hit</td></tr>
+<tr><td align="center">1</td><td align="center">Bash</td></tr>
+<tr><td align="center">2</td><td align="center">Melee Skill Hit</td></tr>
+<tr><td align="center">3</td><td align="center">Melee Skill Hit</td></tr>
+<tr><td align="center">4</td><td align="center">Melee Skill Hit</td></tr>
+<tr><td align="center">5</td><td align="center">Melee Skill Hit</td></tr>
+<tr><td align="center">6</td><td align="center">Being Warped</td></tr>
+<tr><td align="center">7</td><td align="center">Item Heal effect</td></tr>
+<tr><td align="center">8</td><td align="center">Yellow Ripple Effect</td></tr>
+<tr><td align="center">9</td><td align="center">Different Type of Heal</td></tr>
+<tr><td align="center">10</td><td align="center">Mammonite</td></tr>
+<tr><td align="center">11</td><td align="center">Endure</td></tr>
+<tr><td align="center">12</td><td align="center">Yellow cast aura</td></tr>
+<tr><td align="center">13</td><td align="center">Blue Box</td></tr>
+<tr><td align="center">14</td><td align="center">Blue restoring effect</td></tr>
+<tr><td align="center">15</td><td align="center">Soul Strike</td></tr>
+<tr><td align="center">16</td><td align="center">Hide</td></tr>
+<tr><td align="center">17</td><td align="center">Magnum Break</td></tr>
+<tr><td align="center">18</td><td align="center">Steal</td></tr>
+<tr><td align="center">19</td><td align="center">(Invalid)</td></tr>
+<tr><td align="center">20</td><td align="center">Envenom/Poison</td></tr>
+<tr><td align="center">21</td><td align="center">Detoxify</td></tr>
+<tr><td align="center">22</td><td align="center">Sight</td></tr>
+<tr><td align="center">23</td><td align="center">Stone Curse</td></tr>
+<tr><td align="center">24</td><td align="center">Fire Ball</td></tr>
+<tr><td align="center">25</td><td align="center">Fire Wall</td></tr>
+<tr><td align="center">26</td><td align="center">A sound (a swipe?)</td></tr>
+<tr><td align="center">27</td><td align="center">Frost Diver (Traveling to Target)</td></tr>
+<tr><td align="center">28</td><td align="center">Frost Diver (Hitting)</td></tr>
+<tr><td align="center">29</td><td align="center">Lightning Bolt</td></tr>
+<tr><td align="center">30</td><td align="center">Thunder Storm</td></tr>
+<tr><td align="center">31</td><td align="center">Weird bubbles launching from feet</td></tr>
+<tr><td align="center">32</td><td align="center">Small clustered explosions</td></tr>
+<tr><td align="center">33</td><td align="center">Ruwach</td></tr>
+<tr><td align="center">34</td><td align="center">Old Map Exit Animation (unused)</td></tr>
+<tr><td align="center">35</td><td align="center">Old Warp Portal (unused)</td></tr>
+<tr><td align="center">36</td><td align="center">Old Warp Portal (unused)</td></tr>
+<tr><td align="center">37</td><td align="center">AGI Up</td></tr>
+<tr><td align="center">38</td><td align="center">AGI Down</td></tr>
+<tr><td align="center">39</td><td align="center">Aqua Benedicta</td></tr>
+<tr><td align="center">40</td><td align="center">Signum Crucis</td></tr>
+<tr><td align="center">41</td><td align="center">Angelus</td></tr>
+<tr><td align="center">42</td><td align="center">Blessing</td></tr>
+<tr><td align="center">43</td><td align="center">Dex + Agi Up</td></tr>
+<tr><td align="center">44</td><td align="center">Little Fog Smoke</td></tr>
+<tr><td align="center">45</td><td align="center">Faint Little Ball Things</td></tr>
+<tr><td align="center">46</td><td align="center">Sand Wind</td></tr>
+<tr><td align="center">47</td><td align="center">Torch</td></tr>
+<tr><td align="center">48</td><td align="center">Small Piece of Glass</td></tr>
+<tr><td align="center">49</td><td align="center">Firebolt/Wall Hits</td></tr>
+<tr><td align="center">50</td><td align="center">Spinning Fire Thing</td></tr>
+<tr><td align="center">51</td><td align="center">Ice Elemental Hit</td></tr>
+<tr><td align="center">52</td><td align="center">Wind Elemental Hit</td></tr>
+<tr><td align="center">53</td><td align="center">Puff of Purpulish Smoke?</td></tr>
+<tr><td align="center">54</td><td align="center">Cast Initiation Aura (Water Element)</td></tr>
+<tr><td align="center">55</td><td align="center">Cast Initiation Aura (Fire Element)</td></tr>
+<tr><td align="center">56</td><td align="center">Cast Initiation Aura (Wind Element)</td></tr>
+<tr><td align="center">57</td><td align="center">Cast Initiation Aura (Earth Element)</td></tr>
+<tr><td align="center">58</td><td align="center">Cast Initiation Aura (Holy Element)</td></tr>
+<tr><td align="center">59</td><td align="center">Cast Initiation Aura (Poison Element)</td></tr>
+<tr><td align="center">60</td><td align="center">Cast target circle</td></tr>
+<tr><td align="center">61</td><td align="center">Old Warp Portal (NPC Warp, unused)</td></tr>
+<tr><td align="center">62</td><td align="center">Sight Trasher</td></tr>
+<tr><td align="center">63</td><td align="center">Moonlight Sphere</td></tr>
+<tr><td align="center">64</td><td align="center">Something Like Puruple/Yellow Light Bullet</td></tr>
+<tr><td align="center">65</td><td align="center">Something Like Absorb of Power</td></tr>
+<tr><td align="center">66</td><td align="center">Cure</td></tr>
+<tr><td align="center">67</td><td align="center">Provoke</td></tr>
+<tr><td align="center">68</td><td align="center">MVP Banner</td></tr>
+<tr><td align="center">69</td><td align="center">Skid Trap</td></tr>
+<tr><td align="center">70</td><td align="center">Brandish Spear</td></tr>
+<tr><td align="center">71</td><td align="center">Spiral White balls</td></tr>
+<tr><td align="center">72</td><td align="center">Bigger Spiral White balls</td></tr>
+<tr><td align="center">73</td><td align="center">Blue/White Small Aura</td></tr>
+<tr><td align="center">74</td><td align="center">Ice Wall</td></tr>
+<tr><td align="center">75</td><td align="center">Gloria</td></tr>
+<tr><td align="center">76</td><td align="center">Magnificat</td></tr>
+<tr><td align="center">77</td><td align="center">Resurrection</td></tr>
+<tr><td align="center">78</td><td align="center">Status Recovery</td></tr>
+<tr><td align="center">79</td><td align="center">Earth Spike</td></tr>
+<tr><td align="center">80</td><td align="center">Spear Boomerang</td></tr>
+<tr><td align="center">81</td><td align="center">Skill hit</td></tr>
+<tr><td align="center">82</td><td align="center">Turn Undead</td></tr>
+<tr><td align="center">83</td><td align="center">Sanctuary</td></tr>
+<tr><td align="center">84</td><td align="center">Impositio Manus</td></tr>
+<tr><td align="center">85</td><td align="center">Lex Aeterna</td></tr>
+<tr><td align="center">86</td><td align="center">Aspersio</td></tr>
+<tr><td align="center">87</td><td align="center">Lex Divina</td></tr>
+<tr><td align="center">88</td><td align="center">Suffragium</td></tr>
+<tr><td align="center">89</td><td align="center">Storm Gust</td></tr>
+<tr><td align="center">90</td><td align="center">Lord of Vermilion</td></tr>
+<tr><td align="center">91</td><td align="center">B.S. Sacramenti</td></tr>
+<tr><td align="center">92</td><td align="center">Meteor Storm</td></tr>
+<tr><td align="center">93</td><td align="center">Jupitel Thunder (Ball)</td></tr>
+<tr><td align="center">94</td><td align="center">Jupitel Thunder (Hit)</td></tr>
+<tr><td align="center">95</td><td align="center">Quagmire</td></tr>
+<tr><td align="center">96</td><td align="center">Fire Pillar</td></tr>
+<tr><td align="center">97</td><td align="center">Fire Pillar/Land Mine hit</td></tr>
+<tr><td align="center">98</td><td align="center">Adrenaline Rush</td></tr>
+<tr><td align="center">99</td><td align="center">Flasher Trap</td></tr>
+<tr><td align="center">100</td><td align="center">Yellow ball fountain</td></tr>
+<tr><td align="center">101</td><td align="center">Weapon Repair</td></tr>
+<tr><td align="center">102</td><td align="center">Hammerfall</td></tr>
+<tr><td align="center">103</td><td align="center">Weapon Perfection</td></tr>
+<tr><td align="center">104</td><td align="center">Maximize Power</td></tr>
+<tr><td align="center">105</td><td align="center">(nothing)</td></tr>
+<tr><td align="center">106</td><td align="center">Blast Mine Trap</td></tr>
+<tr><td align="center">107</td><td align="center">Claymore Trap</td></tr>
+<tr><td align="center">108</td><td align="center">Freezing Trap</td></tr>
+<tr><td align="center">109</td><td align="center">Bailaban Blue bubble Map Effect</td></tr>
+<tr><td align="center">110</td><td align="center">Trap Used by Giearth</td></tr>
+<tr><td align="center">111</td><td align="center">Spring Trap</td></tr>
+<tr><td align="center">112</td><td align="center">Kyrie Eleison</td></tr>
+<tr><td align="center">113</td><td align="center">Magnus Exorcismus</td></tr>
+<tr><td align="center">114</td><td align="center">Old Magnus Exorcismus Map Unit (unused)</td></tr>
+<tr><td align="center">115</td><td align="center">Blitz Beat</td></tr>
+<tr><td align="center">116</td><td align="center">Fling Watersphere</td></tr>
+<tr><td align="center">117</td><td align="center">Waterball</td></tr>
+<tr><td align="center">118</td><td align="center">Fling Firesphere</td></tr>
+<tr><td align="center">119</td><td align="center">Detect</td></tr>
+<tr><td align="center">120</td><td align="center">Cloaking</td></tr>
+<tr><td align="center">121</td><td align="center">Sonic Blow (Part 1/2)</td></tr>
+<tr><td align="center">122</td><td align="center">Multi hit effect</td></tr>
+<tr><td align="center">123</td><td align="center">Grimtooth Cast</td></tr>
+<tr><td align="center">124</td><td align="center">Venom Dust</td></tr>
+<tr><td align="center">125</td><td align="center">Enchant Poison</td></tr>
+<tr><td align="center">126</td><td align="center">Poison React</td></tr>
+<tr><td align="center">127</td><td align="center">Small Posion React</td></tr>
+<tr><td align="center">128</td><td align="center">Over Thrust</td></tr>
+<tr><td align="center">129</td><td align="center">Venom Splasher Explosion</td></tr>
+<tr><td align="center">130</td><td align="center">Two-Hand Quicken</td></tr>
+<tr><td align="center">131</td><td align="center">Auto-Counter Hit</td></tr>
+<tr><td align="center">132</td><td align="center">Grimtooth Hit</td></tr>
+<tr><td align="center">133</td><td align="center">Ice Effect (Used by NPCs)</td></tr>
+<tr><td align="center">134</td><td align="center">Ice Effect (Used by NPCs)</td></tr>
+<tr><td align="center">135</td><td align="center">Ice Effect (Used by NPCs)</td></tr>
+<tr><td align="center">136</td><td align="center">Slow Poison</td></tr>
+<tr><td align="center">137</td><td align="center">Old Sanctuary Map Unit (unused)</td></tr>
+<tr><td align="center">138</td><td align="center">Fire pillar</td></tr>
+<tr><td align="center">139</td><td align="center">Sandman Trap</td></tr>
+<tr><td align="center">140</td><td align="center">Ressurection Aura</td></tr>
+<tr><td align="center">141</td><td align="center">Pneuma</td></tr>
+<tr><td align="center">142</td><td align="center">Heaven's Drive</td></tr>
+<tr><td align="center">143</td><td align="center">Sonic Blow (Part 2/2)</td></tr>
+<tr><td align="center">144</td><td align="center">Brandish Spear Pre-Hit Effect</td></tr>
+<tr><td align="center">145</td><td align="center">Shockwave Trap</td></tr>
+<tr><td align="center">146</td><td align="center">Shockwave Trap Hit</td></tr>
+<tr><td align="center">147</td><td align="center">Pierce Hit</td></tr>
+<tr><td align="center">148</td><td align="center">Pierce Cast Animation</td></tr>
+<tr><td align="center">149</td><td align="center">Bowling Bash</td></tr>
+<tr><td align="center">150</td><td align="center">Pierce Cast Animation</td></tr>
+<tr><td align="center">151</td><td align="center">Spear Boomerang Cast</td></tr>
+<tr><td align="center">152</td><td align="center">Turn Undead</td></tr>
+<tr><td align="center">153</td><td align="center">Increase Concentration</td></tr>
+<tr><td align="center">154</td><td align="center">Refine Success</td></tr>
+<tr><td align="center">155</td><td align="center">Refine Fail</td></tr>
+<tr><td align="center">156</td><td align="center">jobchange.str not found error</td></tr>
+<tr><td align="center">157</td><td align="center">levelup.str not found error</td></tr>
+<tr><td align="center">158</td><td align="center">Job Level Up</td></tr>
+<tr><td align="center">159</td><td align="center">PvP circle</td></tr>
+<tr><td align="center">160</td><td align="center">PvP Party Circle</td></tr>
+<tr><td align="center">161</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">162</td><td align="center">Snow</td></tr>
+<tr><td align="center">163</td><td align="center">White Sakura Leaves</td></tr>
+<tr><td align="center">164</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">165</td><td align="center">Comodo Fireworks Ball</td></tr>
+<tr><td align="center">166</td><td align="center">Energy Coat (Visual Effect)</td></tr>
+<tr><td align="center">167</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">168</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">169</td><td align="center">Energy Coat Animation</td></tr>
+<tr><td align="center">170</td><td align="center">Cart Revolution</td></tr>
+<tr><td align="center">171</td><td align="center">Venom Dust Map Unit</td></tr>
+<tr><td align="center">172</td><td align="center">Change Element (Dark)</td></tr>
+<tr><td align="center">173</td><td align="center">Change Element (Fire)</td></tr>
+<tr><td align="center">174</td><td align="center">Change Element (Water)</td></tr>
+<tr><td align="center">175</td><td align="center">Change Element (Wind)</td></tr>
+<tr><td align="center">176</td><td align="center">Change Element (Fire)</td></tr>
+<tr><td align="center">177</td><td align="center">Change Element (Earth)</td></tr>
+<tr><td align="center">178</td><td align="center">Change Element (Holy)</td></tr>
+<tr><td align="center">179</td><td align="center">Change Element (Poison)</td></tr>
+<tr><td align="center">180</td><td align="center">Darkness Attack</td></tr>
+<tr><td align="center">181</td><td align="center">Mental Breaker</td></tr>
+<tr><td align="center">182</td><td align="center">Magical Hit</td></tr>
+<tr><td align="center">183</td><td align="center">Self Destruction</td></tr>
+<tr><td align="center">184</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">185</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">186</td><td align="center">Combo Attack 1</td></tr>
+<tr><td align="center">187</td><td align="center">Combo Attack 2</td></tr>
+<tr><td align="center">188</td><td align="center">Combo Attack 3</td></tr>
+<tr><td align="center">189</td><td align="center">Combo Attack 4</td></tr>
+<tr><td align="center">190</td><td align="center">Combo Attack 5</td></tr>
+<tr><td align="center">191</td><td align="center">Guided Attack</td></tr>
+<tr><td align="center">192</td><td align="center">Poison Attack</td></tr>
+<tr><td align="center">193</td><td align="center">Silence Attack</td></tr>
+<tr><td align="center">194</td><td align="center">Stun Attack</td></tr>
+<tr><td align="center">195</td><td align="center">Petrify Attack</td></tr>
+<tr><td align="center">196</td><td align="center">Curse Attack</td></tr>
+<tr><td align="center">197</td><td align="center">Sleep Attack</td></tr>
+<tr><td align="center">198</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">199</td><td align="center">Small Popping Bubble Map Effect</td></tr>
+<tr><td align="center">200</td><td align="center">Normal level 99 Aura (Middle)</td></tr>
+<tr><td align="center">201</td><td align="center">Normal level 99 Aura (Bottom)</td></tr>
+<tr><td align="center">202</td><td align="center">Lv 99 Aura Bubble</td></tr>
+<tr><td align="center">203</td><td align="center">Fury (Visual Effect)</td></tr>
+<tr><td align="center">204</td><td align="center">Red Herb/Potion</td></tr>
+<tr><td align="center">205</td><td align="center">Orange Potion</td></tr>
+<tr><td align="center">206</td><td align="center">Yellow Herb/Potion</td></tr>
+<tr><td align="center">207</td><td align="center">White Herb/Potion</td></tr>
+<tr><td align="center">208</td><td align="center">Blue Herb/Potion</td></tr>
+<tr><td align="center">209</td><td align="center">Green Herb/Potion</td></tr>
+<tr><td align="center">210</td><td align="center">Yellow Circle Healing Effect</td></tr>
+<tr><td align="center">211</td><td align="center">Blue Circle Healing Effect</td></tr>
+<tr><td align="center">212</td><td align="center">Dark Breath</td></tr>
+<tr><td align="center">213</td><td align="center">Defender</td></tr>
+<tr><td align="center">214</td><td align="center">Keeping</td></tr>
+<tr><td align="center">215</td><td align="center">Summon Slave</td></tr>
+<tr><td align="center">216</td><td align="center">Blood Drain</td></tr>
+<tr><td align="center">217</td><td align="center">Energy Drain</td></tr>
+<tr><td align="center">218</td><td align="center">Concentration Potion</td></tr>
+<tr><td align="center">219</td><td align="center">Awakening Potion</td></tr>
+<tr><td align="center">220</td><td align="center">Berserk Potion</td></tr>
+<tr><td align="center">221</td><td align="center">Intense light beam</td></tr>
+<tr><td align="center">222</td><td align="center">Defender (Crusader)</td></tr>
+<tr><td align="center">223</td><td align="center">Holy Cast Aura</td></tr>
+<tr><td align="center">224</td><td align="center">Wind (Map effect)</td></tr>
+<tr><td align="center">225</td><td align="center">Volcano casting effect</td></tr>
+<tr><td align="center">226</td><td align="center">Grand Cross Effect</td></tr>
+<tr><td align="center">227</td><td align="center">Snatch</td></tr>
+<tr><td align="center">228</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">229</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">230</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">231</td><td align="center">Map Light Pillar Animation 1</td></tr>
+<tr><td align="center">232</td><td align="center">Sacrifice (Visual Effect)</td></tr>
+<tr><td align="center">233</td><td align="center">Fog</td></tr>
+<tr><td align="center">234</td><td align="center">Spell Breaker</td></tr>
+<tr><td align="center">235</td><td align="center">Dispell</td></tr>
+<tr><td align="center">236</td><td align="center">Deluge Cast Aura</td></tr>
+<tr><td align="center">237</td><td align="center">Violent Gale Cast Aura</td></tr>
+<tr><td align="center">238</td><td align="center">Magnetic Earth Cast Aura</td></tr>
+<tr><td align="center">239</td><td align="center">Volcano (Visual Effect)</td></tr>
+<tr><td align="center">240</td><td align="center">Deluge (Visual Effect)</td></tr>
+<tr><td align="center">241</td><td align="center">Violent Gale (Visual Effect)</td></tr>
+<tr><td align="center">242</td><td align="center">Magnetic Earth (Visual Effect)</td></tr>
+<tr><td align="center">243</td><td align="center">(Invalid)</td></tr>
+<tr><td align="center">244</td><td align="center">Magic Rod</td></tr>
+<tr><td align="center">245</td><td align="center">Holy Cross</td></tr>
+<tr><td align="center">246</td><td align="center">Shield Charge</td></tr>
+<tr><td align="center">247</td><td align="center">Map Light Pillar Animation 2</td></tr>
+<tr><td align="center">248</td><td align="center">Resistant Souls</td></tr>
+<tr><td align="center">249</td><td align="center">Shield Boomerang</td></tr>
+<tr><td align="center">250</td><td align="center">Spear Quicken</td></tr>
+<tr><td align="center">251</td><td align="center">Devotion</td></tr>
+<tr><td align="center">252</td><td align="center">Reflect Shield</td></tr>
+<tr><td align="center">253</td><td align="center">Absorb Spirit Spheres</td></tr>
+<tr><td align="center">254</td><td align="center">Mental Strength (Visual Effect)</td></tr>
+<tr><td align="center">255</td><td align="center">Elemental Endow (Fire)</td></tr>
+<tr><td align="center">256</td><td align="center">Elemental Endow (Water)</td></tr>
+<tr><td align="center">257</td><td align="center">Elemental Endow (Wind)</td></tr>
+<tr><td align="center">258</td><td align="center">Elemental Endow (Earth)</td></tr>
+<tr><td align="center">259</td><td align="center">Map Light Pillar Animation 3</td></tr>
+<tr><td align="center">260</td><td align="center">Map Light Pillar Animation 4</td></tr>
+<tr><td align="center">261</td><td align="center">Fury Cast Animation</td></tr>
+<tr><td align="center">262</td><td align="center">Raging Quadruple Blow</td></tr>
+<tr><td align="center">263</td><td align="center">Raging Quadruple Blow 2</td></tr>
+<tr><td align="center">264</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">265</td><td align="center">Throw Spirit Sphere</td></tr>
+<tr><td align="center">266</td><td align="center">Raging Quadruple Blow 3</td></tr>
+<tr><td align="center">267</td><td align="center">Occult Impaction</td></tr>
+<tr><td align="center">268</td><td align="center">Steal Coin</td></tr>
+<tr><td align="center">269</td><td align="center">Divest Weapon</td></tr>
+<tr><td align="center">270</td><td align="center">Divest Shield</td></tr>
+<tr><td align="center">271</td><td align="center">Divest Armor</td></tr>
+<tr><td align="center">272</td><td align="center">Divest Helm</td></tr>
+<tr><td align="center">273</td><td align="center">Raging Quadruple Blow 4</td></tr>
+<tr><td align="center">274</td><td align="center">Steal Coin Animation</td></tr>
+<tr><td align="center">275</td><td align="center">Back Stab Animation</td></tr>
+<tr><td align="center">276</td><td align="center">Raging Thrust</td></tr>
+<tr><td align="center">277</td><td align="center">Dissoance Map Unit</td></tr>
+<tr><td align="center">278</td><td align="center">Lullaby Map Unit</td></tr>
+<tr><td align="center">279</td><td align="center">Mr Kim a Rich Man Map Unit</td></tr>
+<tr><td align="center">280</td><td align="center">Eternal Chaos Map Unit</td></tr>
+<tr><td align="center">281</td><td align="center">A Drum on the Battlefield Map Unit</td></tr>
+<tr><td align="center">282</td><td align="center">The Ring Of Nibelungen Map Unit</td></tr>
+<tr><td align="center">283</td><td align="center">Loki's Veil Map Unit</td></tr>
+<tr><td align="center">284</td><td align="center">Into the Abyss Map Unit</td></tr>
+<tr><td align="center">285</td><td align="center">Invunerable Siegfriend Map Unit</td></tr>
+<tr><td align="center">286</td><td align="center">A Wistle Map Unit</td></tr>
+<tr><td align="center">287</td><td align="center">Assassin Cross of Sunset Map Unit</td></tr>
+<tr><td align="center">288</td><td align="center">A Poem of Bragi Map Unit</td></tr>
+<tr><td align="center">289</td><td align="center">The Apple Of Idun Map Unit</td></tr>
+<tr><td align="center">290</td><td align="center">Ugly Dance Map Unit</td></tr>
+<tr><td align="center">291</td><td align="center">Humming Map Unit</td></tr>
+<tr><td align="center">292</td><td align="center">Please don't Forget Me Map Unit</td></tr>
+<tr><td align="center">293</td><td align="center">Fortune's Kiss Map Unit</td></tr>
+<tr><td align="center">294</td><td align="center">Service For You Map Unit</td></tr>
+<tr><td align="center">295</td><td align="center">Frost Joke</td></tr>
+<tr><td align="center">296</td><td align="center">Scream</td></tr>
+<tr><td align="center">297</td><td align="center">Fire Works (Visual Effect)</td></tr>
+<tr><td align="center">298</td><td align="center">Acid Terror Animnation</td></tr>
+<tr><td align="center">299</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">300</td><td align="center">Chemical Protection</td></tr>
+<tr><td align="center">301</td><td align="center">Fire Works (Sound Effect)</td></tr>
+<tr><td align="center">302</td><td align="center">Bomb</td></tr>
+<tr><td align="center">303</td><td align="center">(Unused)</td></tr>
+<tr><td align="center">304</td><td align="center">Teleportation Animation</td></tr>
+<tr><td align="center">305</td><td align="center">Pharmacy Success</td></tr>
+<tr><td align="center">306</td><td align="center">Pharmacy Failed</td></tr>
+<tr><td align="center">307</td><td align="center">Forest Light 1</td></tr>
+<tr><td align="center">308</td><td align="center">Throw Stone</td></tr>
+<tr><td align="center">309</td><td align="center">First Aid</td></tr>
+<tr><td align="center">310</td><td align="center">Sprinkle Sand</td></tr>
+<tr><td align="center">311</td><td align="center">Crazy Uproar</td></tr>
+<tr><td align="center">312</td><td align="center">Heal Effect</td></tr>
+<tr><td align="center">313</td><td align="center">Heal Effect 2</td></tr>
+<tr><td align="center">314</td><td align="center">Old Map Exit effect (Unused)</td></tr>
+<tr><td align="center">315</td><td align="center">Safety Wall</td></tr>
+<tr><td align="center">316</td><td align="center">Warp Portal Animation 1</td></tr>
+<tr><td align="center">317</td><td align="center">Warp Portal Animation 2</td></tr>
+<tr><td align="center">318</td><td align="center">Magnus Exorcisimus Map Unit</td></tr>
+<tr><td align="center">319</td><td align="center">Sanctuary Map Unit</td></tr>
+<tr><td align="center">320</td><td align="center">Offensive Heal</td></tr>
+<tr><td align="center">321</td><td align="center">Warp NPC</td></tr>
+<tr><td align="center">322</td><td align="center">Forest Light 2</td></tr>
+<tr><td align="center">323</td><td align="center">Forest Light 3</td></tr>
+<tr><td align="center">324</td><td align="center">Forest Light 4</td></tr>
+<tr><td align="center">325</td><td align="center">Heal Effect 4</td></tr>
+<tr><td align="center">326</td><td align="center">Chase Walk Left Foot</td></tr>
+<tr><td align="center">327</td><td align="center">Chse Walk Right Foot</td></tr>
+<tr><td align="center">328</td><td align="center">Monk Asura Strike</td></tr>
+<tr><td align="center">329</td><td align="center">Triple Strike</td></tr>
+<tr><td align="center">330</td><td align="center">Combo Finish</td></tr>
+<tr><td align="center">331</td><td align="center">Natural HP Regeneration</td></tr>
+<tr><td align="center">332</td><td align="center">Natural SP Regeneration</td></tr>
+<tr><td align="center">333</td><td align="center">Autumn Leaves</td></tr>
+<tr><td align="center">334</td><td align="center">Blind</td></tr>
+<tr><td align="center">335</td><td align="center">Poison</td></tr>
+<tr><td align="center">336</td><td align="center">Kyrie Eleison/Parrying Shield</td></tr>
+<tr><td align="center">337</td><td align="center">Class Change</td></tr>
+<tr><td align="center">338</td><td align="center">Super Novice/Taekwon Level Up Angel</td></tr>
+<tr><td align="center">339</td><td align="center">Spiral Pierce</td></tr>
+<tr><td align="center">340</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">341</td><td align="center">Wedding Warp Portal</td></tr>
+<tr><td align="center">342</td><td align="center">Wedding Skill</td></tr>
+<tr><td align="center">343</td><td align="center">Another Merry Skill</td></tr>
+<tr><td align="center">344</td><td align="center">Character map entry effect</td></tr>
+<tr><td align="center">345</td><td align="center">Wings (Animated)</td></tr>
+<tr><td align="center">346</td><td align="center">Like Moonlight But Blue</td></tr>
+<tr><td align="center">347</td><td align="center">Wedding Ceremony</td></tr>
+<tr><td align="center">348</td><td align="center">Like 1000 Blade trepassing</td></tr>
+<tr><td align="center">349</td><td align="center">Waterfall (Horizonatal)</td></tr>
+<tr><td align="center">350</td><td align="center">Waterfall (Vertical)</td></tr>
+<tr><td align="center">351</td><td align="center">Small Waterfall (Horizonatal)</td></tr>
+<tr><td align="center">352</td><td align="center">Small Waterfall (Vertical)</td></tr>
+<tr><td align="center">353</td><td align="center">Dark Waterfall (Horizonatal)</td></tr>
+<tr><td align="center">354</td><td align="center">Dark Waterfall (Vertical)</td></tr>
+<tr><td align="center">355</td><td align="center">Dark Small Waterfall (Horizonatal)</td></tr>
+<tr><td align="center">356</td><td align="center">Dark Small Waterfall (Vertical)</td></tr>
+<tr><td align="center">357</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">358</td><td align="center">Niflheim Ghost</td></tr>
+<tr><td align="center">359</td><td align="center">Niflheim Bat Slow</td></tr>
+<tr><td align="center">360</td><td align="center">Niflheim Bat Fast</td></tr>
+<tr><td align="center">361</td><td align="center">Soul Destroyer</td></tr>
+<tr><td align="center">362</td><td align="center">Trancendant Level 99 Aura 1</td></tr>
+<tr><td align="center">363</td><td align="center">Valentine Day Heart With Wings</td></tr>
+<tr><td align="center">364</td><td align="center">Valentine Day Heart</td></tr>
+<tr><td align="center">365</td><td align="center">Gloria Domini</td></tr>
+<tr><td align="center">366</td><td align="center">Martyr's Reckoning</td></tr>
+<tr><td align="center">367</td><td align="center">Aura Blade</td></tr>
+<tr><td align="center">368</td><td align="center">Berserk</td></tr>
+<tr><td align="center">369</td><td align="center">Concentration</td></tr>
+<tr><td align="center">370</td><td align="center">Gospel Map Unit</td></tr>
+<tr><td align="center">371</td><td align="center">Level Up</td></tr>
+<tr><td align="center">372</td><td align="center">Death</td></tr>
+<tr><td align="center">373</td><td align="center">House Smoke</td></tr>
+<tr><td align="center">374</td><td align="center">Basilica</td></tr>
+<tr><td align="center">375</td><td align="center">Assumptio (Visual Effect)</td></tr>
+<tr><td align="center">376</td><td align="center">Palm Strike</td></tr>
+<tr><td align="center">377</td><td align="center">Matyr's Reckoning 2</td></tr>
+<tr><td align="center">378</td><td align="center">Soul Drain (1st Part)</td></tr>
+<tr><td align="center">379</td><td align="center">Soul Drain (2nd Part)</td></tr>
+<tr><td align="center">380</td><td align="center">Magic Crasher</td></tr>
+<tr><td align="center">381</td><td align="center">Blue Starburst (Unknown use)</td></tr>
+<tr><td align="center">382</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">383</td><td align="center">Health Conversion</td></tr>
+<tr><td align="center">384</td><td align="center">Soul Change (Sound Effect)</td></tr>
+<tr><td align="center">385</td><td align="center">Soul Change (Visual Effect)</td></tr>
+<tr><td align="center">386</td><td align="center">True Sight</td></tr>
+<tr><td align="center">387</td><td align="center">Falcon Assault</td></tr>
+<tr><td align="center">388</td><td align="center">Focused Arrow Strike (Sound Effect)</td></tr>
+<tr><td align="center">389</td><td align="center">Wind Walk</td></tr>
+<tr><td align="center">390</td><td align="center">Shattering Strike</td></tr>
+<tr><td align="center">391</td><td align="center">Cart Boost</td></tr>
+<tr><td align="center">392</td><td align="center">Reject Sword</td></tr>
+<tr><td align="center">393</td><td align="center">Arrow Vulcan</td></tr>
+<tr><td align="center">394</td><td align="center">Sheltering Bliss</td></tr>
+<tr><td align="center">395</td><td align="center">Marionette Control (Sound Effect)</td></tr>
+<tr><td align="center">396</td><td align="center">Marionette Control (Visual Effect)</td></tr>
+<tr><td align="center">397</td><td align="center">Trancended 99 Aura (Middle)</td></tr>
+<tr><td align="center">398</td><td align="center">Trancended 99 Aura (Bottom)</td></tr>
+<tr><td align="center">399</td><td align="center">Head Crush</td></tr>
+<tr><td align="center">400</td><td align="center">Joint Beat</td></tr>
+<tr><td align="center">401</td><td align="center">Napalm Vulcan Sound</td></tr>
+<tr><td align="center">402</td><td align="center">Dangerous Soul Collect</td></tr>
+<tr><td align="center">403</td><td align="center">Mind Breaker</td></tr>
+<tr><td align="center">404</td><td align="center">Fiber Lock</td></tr>
+<tr><td align="center">405</td><td align="center">Wall Of Fog</td></tr>
+<tr><td align="center">406</td><td align="center">Soul Burn</td></tr>
+<tr><td align="center">407</td><td align="center">Soul Change</td></tr>
+<tr><td align="center">408</td><td align="center">Mom, Dad, I love you! (Baby Skill)</td></tr>
+<tr><td align="center">409</td><td align="center">Meteor Assault</td></tr>
+<tr><td align="center">410</td><td align="center">Rainbow</td></tr>
+<tr><td align="center">411</td><td align="center">Leap</td></tr>
+<tr><td align="center">412</td><td align="center">Like Throw Spirit Sphere</td></tr>
+<tr><td align="center">413</td><td align="center">Axe Kick</td></tr>
+<tr><td align="center">414</td><td align="center">Round Kick</td></tr>
+<tr><td align="center">415</td><td align="center">Counter Kick</td></tr>
+<tr><td align="center">416</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">417</td><td align="center">Flash</td></tr>
+<tr><td align="center">418</td><td align="center">Warmth Lightning</td></tr>
+<tr><td align="center">419</td><td align="center">Kaite (Visual Effect)</td></tr>
+<tr><td align="center">420</td><td align="center">Eswoo (Small) (Visual Effect)</td></tr>
+<tr><td align="center">421</td><td align="center">Eswoo (Alt. Small) (Visual Effect)</td></tr>
+<tr><td align="center">422</td><td align="center">Eswoo (Normal) (Visual Effect)</td></tr>
+<tr><td align="center">423</td><td align="center">Eswoo (Alt. Normal) (Visual Effect)</td></tr>
+<tr><td align="center">424</td><td align="center">Spirit Link (Visual Effect)</td></tr>
+<tr><td align="center">425</td><td align="center">Esma Hit (Visual Effect)</td></tr>
+<tr><td align="center">426</td><td align="center">Sprint Collision (Visual Effect)</td></tr>
+<tr><td align="center">427</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">428</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">429</td><td align="center">Taekwon Kick Hit 1</td></tr>
+<tr><td align="center">430</td><td align="center">Taekwon Kick Hit 2</td></tr>
+<tr><td align="center">431</td><td align="center">Taekwon Kick Hit 3</td></tr>
+<tr><td align="center">432</td><td align="center">Solar, Lunar and Stellar Perception (Visual Effect)</td></tr>
+<tr><td align="center">433</td><td align="center">Solar, Lunar and Stellar Opposition (Visual Effect)</td></tr>
+<tr><td align="center">434</td><td align="center">Taekwon Kick Hit 4</td></tr>
+<tr><td align="center">435</td><td align="center">Whirlwind Kick</td></tr>
+<tr><td align="center">436</td><td align="center">White Barrier (Unused)</td></tr>
+<tr><td align="center">437</td><td align="center">White barrier 2 (Unused)</td></tr>
+<tr><td align="center">438</td><td align="center">Kaite Reflect Animation</td></tr>
+<tr><td align="center">439</td><td align="center">Flying Side Kick</td></tr>
+<tr><td align="center">440</td><td align="center">Assumptio (Animation)</td></tr>
+<tr><td align="center">441</td><td align="center">Comfort Skills Cast Aura</td></tr>
+<tr><td align="center">442</td><td align="center">Foot Prints caused by Sprint</td></tr>
+<tr><td align="center">443</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">444</td><td align="center">Sprint Stop Animation</td></tr>
+<tr><td align="center">445</td><td align="center">High Jump (Jump)</td></tr>
+<tr><td align="center">446</td><td align="center">High Jump (Return Down)</td></tr>
+<tr><td align="center">447</td><td align="center">Running Left Foot</td></tr>
+<tr><td align="center">448</td><td align="center">Running Right Foot</td></tr>
+<tr><td align="center">449</td><td align="center">KA-Spell (1st Part)</td></tr>
+<tr><td align="center">450</td><td align="center">Darkcross</td></tr>
+<tr><td align="center">451</td><td align="center">Dark Strike</td></tr>
+<tr><td align="center">452</td><td align="center">Something Like Jupitel Thunder</td></tr>
+<tr><td align="center">453</td><td align="center">Paralized</td></tr>
+<tr><td align="center">454</td><td align="center">Like Blind</td></tr>
+<tr><td align="center">455</td><td align="center">Another Warmth Lightning</td></tr>
+<tr><td align="center">456</td><td align="center">Power Up</td></tr>
+<tr><td align="center">457</td><td align="center">Flying Side Kick (2nd Part)</td></tr>
+<tr><td align="center">458</td><td align="center">Running/Sprint (running into a wall)</td></tr>
+<tr><td align="center">459</td><td align="center">Brown tornado that spins sprite (unused)</td></tr>
+<tr><td align="center">460</td><td align="center">Green tornado (unused)</td></tr>
+<tr><td align="center">461</td><td align="center">Blue tornado (unused)</td></tr>
+<tr><td align="center">462</td><td align="center">Kaupe Dodge Effect</td></tr>
+<tr><td align="center">463</td><td align="center">Kaupe Dodge Effect</td></tr>
+<tr><td align="center">464</td><td align="center">White tornado (unused)</td></tr>
+<tr><td align="center">465</td><td align="center">Purple tornado (unused)</td></tr>
+<tr><td align="center">466</td><td align="center">Another Round Kick</td></tr>
+<tr><td align="center">467</td><td align="center">Warm/Mild Wind (Earth)</td></tr>
+<tr><td align="center">468</td><td align="center">Warm/Mild Wind (Wind)</td></tr>
+<tr><td align="center">469</td><td align="center">Warm/Mild Wind (Water)</td></tr>
+<tr><td align="center">470</td><td align="center">Warm/Mild Wind (Fire)</td></tr>
+<tr><td align="center">471</td><td align="center">Warm/Mild Wind (Undead)</td></tr>
+<tr><td align="center">472</td><td align="center">Warm/Mild Wind (Shadow)</td></tr>
+<tr><td align="center">473</td><td align="center">Warm/Mild Wind (Holy)</td></tr>
+<tr><td align="center">474</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">475</td><td align="center">Demon of The Sun Moon And Stars (Level 1)</td></tr>
+<tr><td align="center">476</td><td align="center">Demon of The Sun Moon And Stars (Level 2)</td></tr>
+<tr><td align="center">477</td><td align="center">Demon of The Sun Moon And Stars (Level 3)</td></tr>
+<tr><td align="center">478</td><td align="center">Demon of The Sun Moon And Stars (Level 4)</td></tr>
+<tr><td align="center">479</td><td align="center">Demon of The Sun Moon And Stars (Level 5)</td></tr>
+<tr><td align="center">480</td><td align="center">Demon of The Sun Moon And Stars (Level 6)</td></tr>
+<tr><td align="center">481</td><td align="center">Demon of The Sun Moon And Stars (Level 7)</td></tr>
+<tr><td align="center">482</td><td align="center">Demon of The Sun Moon And Stars (Level 8)</td></tr>
+<tr><td align="center">483</td><td align="center">Demon of The Sun Moon And Stars (Level 9)</td></tr>
+<tr><td align="center">484</td><td align="center">Demon of The Sun Moon And Stars (Level 10)</td></tr>
+<tr><td align="center">485</td><td align="center">Mental Strength Lightning but White</td></tr>
+<tr><td align="center">486</td><td align="center">Mental Strength Lightning</td></tr>
+<tr><td align="center">487</td><td align="center">Demon of The Sun Moon And Stars Ground Effect</td></tr>
+<tr><td align="center">488</td><td align="center">Comfort Skills</td></tr>
+<tr><td align="center">489</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">490</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">491</td><td align="center">Element Potions</td></tr>
+<tr><td align="center">492</td><td align="center">Cooking Foods</td></tr>
+<tr><td align="center">493</td><td align="center">Enchant Deadly Poison</td></tr>
+<tr><td align="center">494</td><td align="center">Throwing Tomahawk</td></tr>
+<tr><td align="center">495</td><td align="center">Full Strip Sound</td></tr>
+<tr><td align="center">496</td><td align="center">Preserve</td></tr>
+<tr><td align="center">497</td><td align="center">Twilight Alchemy 1</td></tr>
+<tr><td align="center">498</td><td align="center">Twilight Alchemy 2</td></tr>
+<tr><td align="center">499</td><td align="center">Twilight Alchemy 3</td></tr>
+<tr><td align="center">500</td><td align="center">Player Become Blue with Blue Aura</td></tr>
+<tr><td align="center">501</td><td align="center">Chase Walk Animation</td></tr>
+<tr><td align="center">502</td><td align="center">Player Become Yellow with Yellow Aura</td></tr>
+<tr><td align="center">503</td><td align="center">Soul Link Word</td></tr>
+<tr><td align="center">504</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">505</td><td align="center">Memorize</td></tr>
+<tr><td align="center">506</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">507</td><td align="center">Authoritative Badge</td></tr>
+<tr><td align="center">508</td><td align="center">Fire Cracker</td></tr>
+<tr><td align="center">509</td><td align="center">Valentine Day Hearth (Wings)</td></tr>
+<tr><td align="center">510</td><td align="center">Champion Asura Strike</td></tr>
+<tr><td align="center">511</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">512</td><td align="center">Chain Crush Combo</td></tr>
+<tr><td align="center">513</td><td align="center">Area Cast</td></tr>
+<tr><td align="center">514</td><td align="center">Really Big Circle</td></tr>
+<tr><td align="center">515</td><td align="center">Einbroch Fog</td></tr>
+<tr><td align="center">516</td><td align="center">Airship Cloud</td></tr>
+<tr><td align="center">517</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">518</td><td align="center">Cart Termination</td></tr>
+<tr><td align="center">519</td><td align="center">Speed Down Potion</td></tr>
+<tr><td align="center">520</td><td align="center">Shield Bumerang</td></tr>
+<tr><td align="center">521</td><td align="center">Player Become Red with Red Aura</td></tr>
+<tr><td align="center">522</td><td align="center">Gravitation Field</td></tr>
+<tr><td align="center">523</td><td align="center">Tarot Card of Fate (The Fool)</td></tr>
+<tr><td align="center">524</td><td align="center">Tarot Card of Fate (The Magician)</td></tr>
+<tr><td align="center">525</td><td align="center">Tarot Card of Fate (The High Priestess)</td></tr>
+<tr><td align="center">526</td><td align="center">Tarot Card of Fate (The Chariot)</td></tr>
+<tr><td align="center">527</td><td align="center">Tarot Card of Fate (Strength)</td></tr>
+<tr><td align="center">528</td><td align="center">Tarot Card of Fate (The Lovers)</td></tr>
+<tr><td align="center">529</td><td align="center">Tarot Card of Fate (The Wheel of Fortune)</td></tr>
+<tr><td align="center">530</td><td align="center">Tarot Card of Fate (The Hanged Man)</td></tr>
+<tr><td align="center">531</td><td align="center">Tarot Card of Fate (Death)</td></tr>
+<tr><td align="center">532</td><td align="center">Tarot Card of Fate (Temperance)</td></tr>
+<tr><td align="center">533</td><td align="center">Tarot Card of Fate (The Devil)</td></tr>
+<tr><td align="center">534</td><td align="center">Tarot Card of Fate (The Tower)</td></tr>
+<tr><td align="center">535</td><td align="center">Tarot Card of Fate (The Star)</td></tr>
+<tr><td align="center">536</td><td align="center">Tarot Card of Fate (The Sun)</td></tr>
+<tr><td align="center">537</td><td align="center">Acid Demonstration</td></tr>
+<tr><td align="center">538</td><td align="center">Player Become Green with Green Aura</td></tr>
+<tr><td align="center">539</td><td align="center">Throw Random Bottle</td></tr>
+<tr><td align="center">540</td><td align="center">Instant Small-&gt;Normal</td></tr>
+<tr><td align="center">541</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">542</td><td align="center">KA-Spell (1st Part)</td></tr>
+<tr><td align="center">543</td><td align="center">Kahii</td></tr>
+<tr><td align="center">544</td><td align="center">Warmth Red Sprite</td></tr>
+<tr><td align="center">545</td><td align="center">Sound And... PUFF Client Crash :P</td></tr>
+<tr><td align="center">546</td><td align="center">Kaupe</td></tr>
+<tr><td align="center">547</td><td align="center">Estin</td></tr>
+<tr><td align="center">548</td><td align="center">Instant Red Sprite</td></tr>
+<tr><td align="center">549</td><td align="center">Instant Blue Sprite</td></tr>
+<tr><td align="center">550</td><td align="center">Another Effect like Running Hit</td></tr>
+<tr><td align="center">551</td><td align="center">Effect Like Estun but with Circle</td></tr>
+<tr><td align="center">552</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">553</td><td align="center">Esma</td></tr>
+<tr><td align="center">554</td><td align="center">Large White Cloud</td></tr>
+<tr><td align="center">555</td><td align="center">Estun</td></tr>
+<tr><td align="center">556</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">557</td><td align="center">Juperos Energy Waterfall (Horizontal)</td></tr>
+<tr><td align="center">558</td><td align="center">Juperos Energy Waterfall (Vertical)</td></tr>
+<tr><td align="center">559</td><td align="center">Juperos Energy Waterfall Fast (Horizontal)</td></tr>
+<tr><td align="center">560</td><td align="center">Juperos Energy Waterfall Fast (Vertical)</td></tr>
+<tr><td align="center">561</td><td align="center">Juperos Warp</td></tr>
+<tr><td align="center">562</td><td align="center">Juperos Warp</td></tr>
+<tr><td align="center">563</td><td align="center">Earthquake Effect (Juperos Elevator)</td></tr>
+<tr><td align="center">564</td><td align="center">Wedding Cast</td></tr>
+<tr><td align="center">565</td><td align="center">Filir Moonlight Lvl 1</td></tr>
+<tr><td align="center">566</td><td align="center">Filir Moonlight Lvl 2</td></tr>
+<tr><td align="center">567</td><td align="center">Filir Moonlight Lvl 3</td></tr>
+<tr><td align="center">568</td><td align="center">Another Job Level Up</td></tr>
+<tr><td align="center">569</td><td align="center">Amistr Bulwark</td></tr>
+<tr><td align="center">570</td><td align="center">Amistr Castling</td></tr>
+<tr><td align="center">571</td><td align="center">Amistr Bloodlust</td></tr>
+<tr><td align="center">572</td><td align="center">Warmth Soul</td></tr>
+<tr><td align="center">573</td><td align="center">Twilight Alchemy 1</td></tr>
+<tr><td align="center">574</td><td align="center">Twilight Alchemy 2</td></tr>
+<tr><td align="center">575</td><td align="center">Twilight Alchemy 3</td></tr>
+<tr><td align="center">576</td><td align="center">Box Effect (Thunder)</td></tr>
+<tr><td align="center">577</td><td align="center">Box Effect (Cloud)</td></tr>
+<tr><td align="center">578</td><td align="center">Box Effect (Curse)</td></tr>
+<tr><td align="center">579</td><td align="center">Box Effect (Sleep)</td></tr>
+<tr><td align="center">580</td><td align="center">Box Effect (Rain)</td></tr>
+<tr><td align="center">581</td><td align="center">Box Effect (Sunlight)</td></tr>
+<tr><td align="center">582</td><td align="center">Another Super Novice/Taekwon Angel</td></tr>
+<tr><td align="center">583</td><td align="center">Warmth Hit</td></tr>
+<tr><td align="center">584</td><td align="center">Full Buster</td></tr>
+<tr><td align="center">585</td><td align="center">5 Medium Size Explosion</td></tr>
+<tr><td align="center">586</td><td align="center">Somatology Lab Mobs Aura</td></tr>
+<tr><td align="center">587</td><td align="center">Big Purple Flame</td></tr>
+<tr><td align="center">588</td><td align="center">Little Red Flame</td></tr>
+<tr><td align="center">589</td><td align="center">Eswoo</td></tr>
+<tr><td align="center">590</td><td align="center">Running Stop</td></tr>
+<tr><td align="center">591</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">592</td><td align="center">Thanatos Tower Bloody Clouds</td></tr>
+<tr><td align="center">593</td><td align="center">Food Effect (STR)</td></tr>
+<tr><td align="center">594</td><td align="center">Food Effect (INT)</td></tr>
+<tr><td align="center">595</td><td align="center">Food Effect (VIT)</td></tr>
+<tr><td align="center">596</td><td align="center">Food Effect (AGI)</td></tr>
+<tr><td align="center">597</td><td align="center">Food Effect (DEX)</td></tr>
+<tr><td align="center">598</td><td align="center">Food Effect (LUK)</td></tr>
+<tr><td align="center">599</td><td align="center">Cast Time Sound and Flashing Animation on Player</td></tr>
+<tr><td align="center">600</td><td align="center">Throw Venom Knife</td></tr>
+<tr><td align="center">601</td><td align="center">Sight Blaster</td></tr>
+<tr><td align="center">602</td><td align="center">Close Confine (Grab Effect)</td></tr>
+<tr><td align="center">603</td><td align="center">Spinning fire ball (like 50, but smaller)</td></tr>
+<tr><td align="center">604</td><td align="center">Close Confine (Ground Effect)</td></tr>
+<tr><td align="center">605</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">606</td><td align="center">Pang Voice (Visual Effect)</td></tr>
+<tr><td align="center">607</td><td align="center">Wink of Charm (Visual Effect)</td></tr>
+<tr><td align="center">608</td><td align="center">Cooking Success</td></tr>
+<tr><td align="center">609</td><td align="center">Cooking Failed</td></tr>
+<tr><td align="center">610</td><td align="center">Success</td></tr>
+<tr><td align="center">611</td><td align="center">Failed</td></tr>
+<tr><td align="center">612</td><td align="center">Korean Words and /no1 Emoticon</td></tr>
+<tr><td align="center">613</td><td align="center">Throw Shuriken</td></tr>
+<tr><td align="center">614</td><td align="center">Throw Kunai</td></tr>
+<tr><td align="center">615</td><td align="center">Throw Fumma Shuriken</td></tr>
+<tr><td align="center">616</td><td align="center">Throw Money</td></tr>
+<tr><td align="center">617</td><td align="center">Illusionary Shadow</td></tr>
+<tr><td align="center">618</td><td align="center">Crimson Fire Bolossom</td></tr>
+<tr><td align="center">619</td><td align="center">Lightning Spear Of Ice</td></tr>
+<tr><td align="center">620</td><td align="center">Water Escape Technique</td></tr>
+<tr><td align="center">621</td><td align="center">Wind Blade</td></tr>
+<tr><td align="center">622</td><td align="center">Lightning Crash</td></tr>
+<tr><td align="center">623</td><td align="center">Piercing Shot</td></tr>
+<tr><td align="center">624</td><td align="center">Kamaitachi</td></tr>
+<tr><td align="center">625</td><td align="center">Madness Canceller</td></tr>
+<tr><td align="center">626</td><td align="center">Adjustment</td></tr>
+<tr><td align="center">627</td><td align="center">Disarm (Sound Effect)</td></tr>
+<tr><td align="center">628</td><td align="center">Dust</td></tr>
+<tr><td align="center">629</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">630</td><td align="center">Shadow Slash</td></tr>
+<tr><td align="center">631</td><td align="center">Reverse Tatami Map Unit</td></tr>
+<tr><td align="center">632</td><td align="center">Mist Slash</td></tr>
+<tr><td align="center">633</td><td align="center">Final Strike</td></tr>
+<tr><td align="center">634</td><td align="center">Crimson Fire Formation</td></tr>
+<tr><td align="center">635</td><td align="center">Dragon Fire Formation</td></tr>
+<tr><td align="center">636</td><td align="center">Falling Ice Pillar</td></tr>
+<tr><td align="center">637</td><td align="center">Desperado</td></tr>
+<tr><td align="center">638</td><td align="center">Ground Drift Grenade</td></tr>
+<tr><td align="center">639</td><td align="center">Ground Drift Grenade</td></tr>
+<tr><td align="center">640</td><td align="center">Ground Drift Grenade</td></tr>
+<tr><td align="center">641</td><td align="center">Ground Drift Grenade</td></tr>
+<tr><td align="center">642</td><td align="center">Ground Drift Grenade</td></tr>
+<tr><td align="center">643</td><td align="center">Rapid Shower</td></tr>
+<tr><td align="center">644</td><td align="center">Magic Bullet</td></tr>
+<tr><td align="center">645</td><td align="center">Spread Attack</td></tr>
+<tr><td align="center">646</td><td align="center">Tracking (Shown While Casting)</td></tr>
+<tr><td align="center">647</td><td align="center">Tracking</td></tr>
+<tr><td align="center">648</td><td align="center">Triple Action</td></tr>
+<tr><td align="center">649</td><td align="center">Bull's Eye</td></tr>
+<tr><td align="center">650</td><td align="center">Ice Cave Level 4 Circle</td></tr>
+<tr><td align="center">651</td><td align="center">Ice Cave Level 4 Big Circle</td></tr>
+<tr><td align="center">652</td><td align="center">Like Regeneration Number but Red with a Sound</td></tr>
+<tr><td align="center">653</td><td align="center">Like Regeneration Number but Red</td></tr>
+<tr><td align="center">654</td><td align="center">Like Regeneration Number but Purple</td></tr>
+<tr><td align="center">655</td><td align="center">Mobs Skill (Change Undead Element)</td></tr>
+<tr><td align="center">656</td><td align="center">Last animation before Change Undead Element finish</td></tr>
+<tr><td align="center">657</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">658</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">659</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">660</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">661</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">662</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">663</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">664</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">665</td><td align="center">Little Blue Ball Falling From the Sky</td></tr>
+<tr><td align="center">666</td><td align="center">Earthquake</td></tr>
+<tr><td align="center">667</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">668</td><td align="center">Dragonfear</td></tr>
+<tr><td align="center">669</td><td align="center">Wide Bleeding</td></tr>
+<tr><td align="center">670</td><td align="center">Dragon fear (Visual Effect)</td></tr>
+<tr><td align="center">671</td><td align="center">The Japan Earth Symbol (like 'Seven Wind Lv1', but on the ground)</td></tr>
+<tr><td align="center">672</td><td align="center">The Japan Wind Symbol (like 'Seven Wind Lv2', but on the ground)</td></tr>
+<tr><td align="center">673</td><td align="center">Map turns Blue (like Soul Link)</td></tr>
+<tr><td align="center">674</td><td align="center">Evil Land Cell</td></tr>
+<tr><td align="center">675</td><td align="center">Like Parrying/Kyrie Eleison barrier but Yellow with small Cross in every barrier piece</td></tr>
+<tr><td align="center">676</td><td align="center">Slow Casting</td></tr>
+<tr><td align="center">677</td><td align="center">Critical Wounds/Bleeding Attack</td></tr>
+<tr><td align="center">678</td><td align="center">White 99 Aura Bubbles</td></tr>
+<tr><td align="center">679</td><td align="center">Green Aura (Middle)</td></tr>
+<tr><td align="center">680</td><td align="center">Green Aura (Bottom)</td></tr>
+<tr><td align="center">681</td><td align="center">Dimensional Gorge Map Effect</td></tr>
+<tr><td align="center">682</td><td align="center">I Love You Banner</td></tr>
+<tr><td align="center">683</td><td align="center">Happy White Day Banner</td></tr>
+<tr><td align="center">684</td><td align="center">Happy Valentine Day Banner</td></tr>
+<tr><td align="center">685</td><td align="center">Happy Birthday Banner</td></tr>
+<tr><td align="center">686</td><td align="center">Merry Christmas Banner</td></tr>
+<tr><td align="center">687</td><td align="center">Cast Circle-Like effect 1</td></tr>
+<tr><td align="center">688</td><td align="center">Cast Circle-Like effect 2</td></tr>
+<tr><td align="center">689</td><td align="center">Endless Tower Map Effect</td></tr>
+<tr><td align="center">690</td><td align="center">Burning Flame (Red)</td></tr>
+<tr><td align="center">691</td><td align="center">Burning Flame (Green)</td></tr>
+<tr><td align="center">692</td><td align="center">Unknown Aura Bubbles (Small ghosts)</td></tr>
+<tr><td align="center">693</td><td align="center">Translucent yellow circle</td></tr>
+<tr><td align="center">694</td><td align="center">Translucent green circle</td></tr>
+<tr><td align="center">695</td><td align="center">Rotating green light</td></tr>
+<tr><td align="center">696</td><td align="center">The same of 690 and 691 but Blue/Purple</td></tr>
+<tr><td align="center">697</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">698</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">699</td><td align="center">Fall of powder from the sky and raise of some leaf</td></tr>
+<tr><td align="center">700</td><td align="center">Big Colored Green Sphere</td></tr>
+<tr><td align="center">701</td><td align="center">Huge Blue Sphere</td></tr>
+<tr><td align="center">702</td><td align="center">Little Colored Violet Sphere</td></tr>
+<tr><td align="center">703</td><td align="center">Light Infiltration with fall of pownder</td></tr>
+<tr><td align="center">704</td><td align="center">Client Error (mobile_ef02.str)</td></tr>
+<tr><td align="center">705</td><td align="center">Client Error (mobile_ef01.str)</td></tr>
+<tr><td align="center">706</td><td align="center">Client Error (mobile_ef03.str)</td></tr>
+<tr><td align="center">707</td><td align="center">Client Crash :P</td></tr>
+<tr><td align="center">708</td><td align="center">Storm Gust (same as 89)</td></tr>
+<tr><td align="center">709</td><td align="center">A Firework that split in 4 mini fireworks</td></tr>
+<tr><td align="center">710</td><td align="center">A Sphere like Effect 701 but Green, and a bit more larger</td></tr>
+<tr><td align="center">711</td><td align="center">A big violet wall</td></tr>
+<tr><td align="center">712</td><td align="center">A Little Flame Sphere</td></tr>
+<tr><td align="center">713</td><td align="center">A lot of Very Small and Yellow Sphere</td></tr>
+<tr><td align="center">714</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">715</td><td align="center">Little blue Basilica</td></tr>
+<tr><td align="center">716</td><td align="center">Same as 715</td></tr>
+<tr><td align="center">717</td><td align="center">Christmas Carol (copy of Angelus)</td></tr>
+<tr><td align="center">718</td><td align="center">Judex (Visual Effect)</td></tr>
+<tr><td align="center">719</td><td align="center">Renovatio (light beam)</td></tr>
+<tr><td align="center">720</td><td align="center">Yellow version of Soul Breaker</td></tr>
+<tr><td align="center">721</td><td align="center">Adoramus (lightning bolt)</td></tr>
+<tr><td align="center">722</td><td align="center">Ignition Break (big explosion)</td></tr>
+<tr><td align="center">723</td><td align="center">Hundred Spear (sound effect)</td></tr>
+<tr><td align="center">724</td><td align="center">Green version of Detecting</td></tr>
+<tr><td align="center">725</td><td align="center">Oratorio (like Detecting)</td></tr>
+<tr><td align="center">726</td><td align="center">Frost Misty (blue vapor and bubbles)</td></tr>
+<tr><td align="center">727</td><td align="center">Crimson Rock</td></tr>
+<tr><td align="center">728</td><td align="center">Small fire (part of Hell Inferno)</td></tr>
+<tr><td align="center">729</td><td align="center">Marsh of Abyss (like Close Confine)</td></tr>
+<tr><td align="center">730</td><td align="center">Small, cartoony explosion (part of Soul Expansion)</td></tr>
+<tr><td align="center">731</td><td align="center">Dragon Howling (blinking, expanding circle)</td></tr>
+<tr><td align="center">732</td><td align="center">Spike from the ground</td></tr>
+<tr><td align="center">733</td><td align="center">Fluffy Ball flying by</td></tr>
+<tr><td align="center">734</td><td align="center">Chain Lightning</td></tr>
+<tr><td align="center">735</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">736</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">737</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">738</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">739</td><td align="center">Old Magenta Trap</td></tr>
+<tr><td align="center">740</td><td align="center">Old Cobald Trap</td></tr>
+<tr><td align="center">741</td><td align="center">Old Maize Trap</td></tr>
+<tr><td align="center">742</td><td align="center">Old Verdure Trap</td></tr>
+<tr><td align="center">743</td><td align="center">White Ranger Trap</td></tr>
+<tr><td align="center">744</td><td align="center">Camouflage</td></tr>
+<tr><td align="center">745</td><td align="center">Aimed Bolt (crosshairs)</td></tr>
+<tr><td align="center">746</td><td align="center">Arrow Storm</td></tr>
+<tr><td align="center">747</td><td align="center">Falling white feathers</td></tr>
+<tr><td align="center">748</td><td align="center">Falling blue feathers</td></tr>
+<tr><td align="center">749</td><td align="center">Millennium Shield</td></tr>
+<tr><td align="center">750</td><td align="center">Detonator (blue sparkles)</td></tr>
+<tr><td align="center">751</td><td align="center">Releasing summoned warlock spheres</td></tr>
+<tr><td align="center">752</td><td align="center">Like Energy Coat, but not as dark</td></tr>
+<tr><td align="center">753</td><td align="center">Clearance</td></tr>
+<tr><td align="center">754</td><td align="center">Green warp portal (root of Epiclesis)</td></tr>
+<tr><td align="center">755</td><td align="center">Oratio (spinning blue symbol)</td></tr>
+<tr><td align="center">756</td><td align="center">Enchant Blade (like Berserk Potion)</td></tr>
+<tr><td align="center">757</td><td align="center">Third Class Aura (Middle)</td></tr>
+<tr><td align="center">758</td><td align="center">Rolling Cutter - Spin Count 1</td></tr>
+<tr><td align="center">759</td><td align="center">Rolling Cutter - Spin Count 2</td></tr>
+<tr><td align="center">760</td><td align="center">Rolling Cutter - Spin Count 3</td></tr>
+<tr><td align="center">761</td><td align="center">Rolling Cutter - Spin Count 4</td></tr>
+<tr><td align="center">762</td><td align="center">Rolling Cutter - Spin Count 5</td></tr>
+<tr><td align="center">763</td><td align="center">Rolling Cutter - Spin Count 6</td></tr>
+<tr><td align="center">764</td><td align="center">Rolling Cutter - Spin Count 7</td></tr>
+<tr><td align="center">765</td><td align="center">Rolling Cutter - Spin Count 8</td></tr>
+<tr><td align="center">766</td><td align="center">Rolling Cutter - Spin Count 9</td></tr>
+<tr><td align="center">767</td><td align="center">Rolling Cutter - Spin Count 10</td></tr>
+<tr><td align="center">768</td><td align="center">Blinking</td></tr>
+<tr><td align="center">769</td><td align="center">Cross Ripper Slasher (flying knives)</td></tr>
+<tr><td align="center">770</td><td align="center">Strip sound</td></tr>
+<tr><td align="center">771</td><td align="center">Poison sound</td></tr>
+<tr><td align="center">772</td><td align="center">Poison particles</td></tr>
+<tr><td align="center">773</td><td align="center">Expanding purple aura (part of Phantom Menace)</td></tr>
+<tr><td align="center">774</td><td align="center">Axe Boomerang</td></tr>
+<tr><td align="center">775</td><td align="center">Spinning character sprite</td></tr>
+<tr><td align="center">776</td><td align="center">Like Desperado sound effect</td></tr>
+<tr><td align="center">777</td><td align="center">Faded light from the ground [S]</td></tr>
+<tr><td align="center">778</td><td align="center">Expanding white aura (like Clearance)</td></tr>
+<tr><td align="center">779</td><td align="center">Faded light from the ground [S]</td></tr>
+<tr><td align="center">780</td><td align="center">Expanding red aura (from Infrared Scan)</td></tr>
+<tr><td align="center">781</td><td align="center">Magnetic Field (purple chains)</td></tr>
+<tr><td align="center">782</td><td align="center">All-around shield [S]</td></tr>
+<tr><td align="center">783</td><td align="center">Yellow shaft of light</td></tr>
+<tr><td align="center">784</td><td align="center">White shaft of light</td></tr>
+<tr><td align="center">785</td><td align="center">Upward flying wrenches</td></tr>
+<tr><td align="center">786</td><td align="center">Symbol with bleeping sound [S]</td></tr>
+<tr><td align="center">787</td><td align="center">Flare Launcher (line of fire)</td></tr>
+<tr><td align="center">788</td><td align="center">Venom Impress (green skull)</td></tr>
+<tr><td align="center">789</td><td align="center">Freezing Status Effect (two ancillas)</td></tr>
+<tr><td align="center">790</td><td align="center">Burning Status Effect (flame symbol)</td></tr>
+<tr><td align="center">791</td><td align="center">Two ice shots</td></tr>
+<tr><td align="center">792</td><td align="center">Upward streaming white particles</td></tr>
+<tr><td align="center">793</td><td align="center">Same, but more brief</td></tr>
+<tr><td align="center">794</td><td align="center">Infrared Scan (red lasers)</td></tr>
+<tr><td align="center">795</td><td align="center">Power Swing (axe crash)</td></tr>
+<tr><td align="center">796</td><td align="center">Spinning blue triangles</td></tr>
+<tr><td align="center">797</td><td align="center">Stapo</td></tr>
+<tr><td align="center">798</td><td align="center">Red triangles (like Intimidate)</td></tr>
+<tr><td align="center">799</td><td align="center">Stasis (expanding blue mist) [S]</td></tr>
+<tr><td align="center">800</td><td align="center">Hell Inferno (red lights)</td></tr>
+<tr><td align="center">801</td><td align="center">Jack Frost unit (ice spikes)</td></tr>
+<tr><td align="center">802</td><td align="center">White Imprison</td></tr>
+<tr><td align="center">803</td><td align="center">Recognized Spell</td></tr>
+<tr><td align="center">804</td><td align="center">Tetra Vortex [S]</td></tr>
+<tr><td align="center">805</td><td align="center">Tetra Vortex cast animation (blinking colors)</td></tr>
+<tr><td align="center">806</td><td align="center">Flying by as fast as a rocket</td></tr>
+<tr><td align="center">807</td><td align="center">Kidnapping sound</td></tr>
+<tr><td align="center">808</td><td align="center">Like Recognized Spell, but one symbol</td></tr>
+<tr><td align="center">809</td><td align="center">Shadowy filter [S]</td></tr>
+<tr><td align="center">810</td><td align="center">Damp thud sound [S]</td></tr>
+<tr><td align="center">811</td><td align="center">Body Painting</td></tr>
+<tr><td align="center">812</td><td align="center">Black expanding aura</td></tr>
+<tr><td align="center">813</td><td align="center">Masquerade - Enervation</td></tr>
+<tr><td align="center">814</td><td align="center">Masquerade - Groomy</td></tr>
+<tr><td align="center">815</td><td align="center">Masquerade - Ignorance</td></tr>
+<tr><td align="center">816</td><td align="center">Masquerade - Laziness</td></tr>
+<tr><td align="center">817</td><td align="center">Masquerade - Unlucky</td></tr>
+<tr><td align="center">818</td><td align="center">Masquerade - Weakness</td></tr>
+<tr><td align="center">819</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">820</td><td align="center">Strip Accessory</td></tr>
+<tr><td align="center">821</td><td align="center">Waterfall</td></tr>
+<tr><td align="center">822</td><td align="center">Dimension Door (spinning blue aura)</td></tr>
+<tr><td align="center">823</td><td align="center">in-the-manhole effect</td></tr>
+<tr><td align="center">824</td><td align="center">Some filter</td></tr>
+<tr><td align="center">825</td><td align="center">Dimension Door (aura + blue light)</td></tr>
+<tr><td align="center">826</td><td align="center">Expanding black casting anim</td></tr>
+<tr><td align="center">827</td><td align="center">Chaos Panic (spinning brown aura)</td></tr>
+<tr><td align="center">828</td><td align="center">Maelstrom (spinning pink aura)</td></tr>
+<tr><td align="center">829</td><td align="center">Bloody Lust (spinning red aura)</td></tr>
+<tr><td align="center">830</td><td align="center">Blue aura (Arch Bishop cast animation)</td></tr>
+<tr><td align="center">831</td><td align="center">Blue cone [S]</td></tr>
+<tr><td align="center">832</td><td align="center">Sonic Wave</td></tr>
+<tr><td align="center">833</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">834</td><td align="center">Light shooting away circlish</td></tr>
+<tr><td align="center">835</td><td align="center">Fastness yellow-reddish</td></tr>
+<tr><td align="center">836</td><td align="center">Fastness yellow-pinkish</td></tr>
+<tr><td align="center">837</td><td align="center">Casting [S]</td></tr>
+<tr><td align="center">838</td><td align="center">Watery aura</td></tr>
+<tr><td align="center">839</td><td align="center">[Client Error]</td></tr>
+<tr><td align="center">840</td><td align="center">Red cone</td></tr>
+<tr><td align="center">841</td><td align="center">Green cone</td></tr>
+<tr><td align="center">842</td><td align="center">Yellow cone</td></tr>
+<tr><td align="center">843</td><td align="center">White cone</td></tr>
+<tr><td align="center">844</td><td align="center">Purple cone</td></tr>
+<tr><td align="center">845</td><td align="center">light-bluish turquoise cone</td></tr>
+<tr><td align="center">846</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">847</td><td align="center">Gloomy Day (white/red light rays)</td></tr>
+<tr><td align="center">848</td><td align="center">Gloomy Day (white/blue light rays)</td></tr>
+<tr><td align="center">849</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">850</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">851</td><td align="center">Green mushy-foggy stuff (dull)</td></tr>
+<tr><td align="center">852</td><td align="center">Green mushy-foggy stuff (bright)</td></tr>
+<tr><td align="center">853</td><td align="center">Bright green flower area</td></tr>
+<tr><td align="center">854</td><td align="center">Blue beam of light with notes</td></tr>
+<tr><td align="center">855</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">856</td><td align="center">Reverberation (red eighth notes)</td></tr>
+<tr><td align="center">857</td><td align="center">Severe Rainstorm (falling red and blue beams)</td></tr>
+<tr><td align="center">858</td><td align="center">Deep Sleep Lullaby (two red beams and music notes)</td></tr>
+<tr><td align="center">859</td><td align="center">Holograph of text (blue)</td></tr>
+<tr><td align="center">860</td><td align="center">Distorted note (blue)</td></tr>
+<tr><td align="center">861</td><td align="center">Green aura (from Circle of Life's Melody)</td></tr>
+<tr><td align="center">862</td><td align="center">Randomize Spell (holograph of text)</td></tr>
+<tr><td align="center">863</td><td align="center">Dominion Impulse (two spears of light)</td></tr>
+<tr><td align="center">864</td><td align="center">Gloomy Day (colorful lines)</td></tr>
+<tr><td align="center">865</td><td align="center">Blue aura (from Song of Mana)</td></tr>
+<tr><td align="center">866</td><td align="center">Dance with a Warg (Wargs)</td></tr>
+<tr><td align="center">867</td><td align="center">Yellow aura (from Dance with a Warg)</td></tr>
+<tr><td align="center">868</td><td align="center">Song of Mana (Violies)</td></tr>
+<tr><td align="center">869</td><td align="center">Strip sound [S]</td></tr>
+<tr><td align="center">870</td><td align="center">Ghostly Succubuses of fire</td></tr>
+<tr><td align="center">871</td><td align="center">Red aura (from Lerad's Dew)</td></tr>
+<tr><td align="center">872</td><td align="center">Lerad's Dew (Minerals)</td></tr>
+<tr><td align="center">873</td><td align="center">Stargate-wormhole stuff (bright purple)</td></tr>
+<tr><td align="center">874</td><td align="center">Melody of Sink (Ktullanuxes)</td></tr>
+<tr><td align="center">875</td><td align="center">Stargate-wormhole stuff (bright turquoise)</td></tr>
+<tr><td align="center">876</td><td align="center">Warcry of Beyond (Garms)</td></tr>
+<tr><td align="center">877</td><td align="center">Stargate-wormhole stuff (white)</td></tr>
+<tr><td align="center">878</td><td align="center">Unlimited Humming Voice (Miyabi Ningyos)</td></tr>
+<tr><td align="center">879</td><td align="center">Siren's Voice (heart-like)</td></tr>
+<tr><td align="center">880</td><td align="center">Bluish castish cone</td></tr>
+<tr><td align="center">881</td><td align="center">Blue aura</td></tr>
+<tr><td align="center">882</td><td align="center">Whirl of fireflies (red)</td></tr>
+<tr><td align="center">883</td><td align="center">Epiclesis (transparent green tree)</td></tr>
+<tr><td align="center">884</td><td align="center">Green beam</td></tr>
+<tr><td align="center">885</td><td align="center">Blue light beams</td></tr>
+<tr><td align="center">886</td><td align="center">Blue castish cone</td></tr>
+<tr><td align="center">887</td><td align="center">Wavy sparks</td></tr>
+<tr><td align="center">888</td><td align="center">Earth Shaker (same as 432)</td></tr>
+<tr><td align="center">889</td><td align="center">Fast light beams</td></tr>
+<tr><td align="center">890</td><td align="center">Rotation</td></tr>
+<tr><td align="center">891</td><td align="center">Magic shots [S]</td></tr>
+<tr><td align="center">892</td><td align="center">Fastness with hitting sound[S]</td></tr>
+<tr><td align="center">893</td><td align="center">Blue-white light passing by</td></tr>
+<tr><td align="center">894</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">895</td><td align="center">Big wheel of flat light beams</td></tr>
+<tr><td align="center">896</td><td align="center">Still sun shaped lightning aura</td></tr>
+<tr><td align="center">897</td><td align="center">Animated sun shaped lightning aura</td></tr>
+<tr><td align="center">898</td><td align="center">Animated, curvy sun shaped lightning aura</td></tr>
+<tr><td align="center">899</td><td align="center">White/red light shots from below</td></tr>
+<tr><td align="center">900</td><td align="center">Animated, slow curvy sun shaped lightning aura</td></tr>
+<tr><td align="center">901</td><td align="center">Explosion</td></tr>
+<tr><td align="center">902</td><td align="center">Floating bedtable texture</td></tr>
+<tr><td align="center">903</td><td align="center">Castish flamey cone</td></tr>
+<tr><td align="center">904</td><td align="center">Yellow/pink lights passing by</td></tr>
+<tr><td align="center">905</td><td align="center">Expanding circle</td></tr>
+<tr><td align="center">906</td><td align="center">Shield Press (falling shield)</td></tr>
+<tr><td align="center">907</td><td align="center">Chainy, metalish sound [S]</td></tr>
+<tr><td align="center">908</td><td align="center">Prestige (sphere of yellow particles)</td></tr>
+<tr><td align="center">909</td><td align="center">Banding (sphere of red particles)</td></tr>
+<tr><td align="center">910</td><td align="center">Inspiration (sphere of blue particles)</td></tr>
+<tr><td align="center">911</td><td align="center">Green castish animation [S]</td></tr>
+<tr><td align="center">912</td><td align="center">Wall of Thorns unit (green fog cloud)</td></tr>
+<tr><td align="center">913</td><td align="center">Magic projectiles</td></tr>
+<tr><td align="center">914</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">915</td><td align="center">Crazy Weed</td></tr>
+<tr><td align="center">916</td><td align="center">Demonic Fire</td></tr>
+<tr><td align="center">917</td><td align="center">More angry, demonic flames</td></tr>
+<tr><td align="center">918</td><td align="center">Fire Insignia (demonic flames)</td></tr>
+<tr><td align="center">919</td><td align="center">Hell's Plant (green snapping plant)</td></tr>
+<tr><td align="center">920</td><td align="center">Fire Walk unit</td></tr>
+<tr><td align="center">921</td><td align="center">Vacuum Extreme (whirlwind)</td></tr>
+<tr><td align="center">922</td><td align="center">Psychic Wave</td></tr>
+<tr><td align="center">923</td><td align="center">Poison Buster</td></tr>
+<tr><td align="center">924</td><td align="center">Poisoning animation</td></tr>
+<tr><td align="center">925</td><td align="center">Some filter</td></tr>
+<tr><td align="center">926</td><td align="center">Electric Walk unit</td></tr>
+<tr><td align="center">927</td><td align="center">Earth Grave (speary roots)</td></tr>
+<tr><td align="center">928</td><td align="center">Ice cloud projectiles</td></tr>
+<tr><td align="center">929</td><td align="center">Warmer (field of flames)</td></tr>
+<tr><td align="center">930</td><td align="center">Varetyr Spear (falling spear)</td></tr>
+<tr><td align="center">931</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">932</td><td align="center">Firefly</td></tr>
+<tr><td align="center">933</td><td align="center">[Client Crash]</td></tr>
+<tr><td align="center">934</td><td align="center">White, castishly expanding cone</td></tr>
+<tr><td align="center">935</td><td align="center">Green magic projectile</td></tr>
+<tr><td align="center">936</td><td align="center">Red, castishly expanding cone</td></tr>
+<tr><td align="center">937</td><td align="center">Yellow, castishly expanding cone</td></tr>
+<tr><td align="center">938</td><td align="center">Dark-red, castishly expanding cone</td></tr>
+<tr><td align="center">939</td><td align="center">Blue, conish aura</td></tr>
+<tr><td align="center">940</td><td align="center">Snow flake</td></tr>
+<tr><td align="center">941</td><td align="center">Explosion of red, demonic fire</td></tr>
+<tr><td align="center">942</td><td align="center">Expanding, white dome</td></tr>
+<tr><td align="center">943</td><td align="center">Green, fluffy projectile</td></tr>
+<tr><td align="center">944</td><td align="center">Falling gems</td></tr>
+<tr><td align="center">945</td><td align="center">(Nothing)</td></tr>
+<tr><td align="center">946</td><td align="center">Floating lights</td></tr>
+<tr><td align="center">947</td><td align="center">Blue lightning sphere</td></tr>
+<tr><td align="center">948</td><td align="center">Two blue lightning spheres</td></tr>
+<tr><td align="center">949</td><td align="center">Flat, spinning diamond</td></tr>
+<tr><td align="center">950</td><td align="center">Circling, planetlike spheres</td></tr>
+<tr><td align="center">951</td><td align="center">Three lightning spheres</td></tr>
+<tr><td align="center">952</td><td align="center">Flat, spinning gem and two lightning spheres</td></tr>
+<tr><td align="center">953</td><td align="center">Spinning, planetlike spheres</td></tr>
+<tr><td align="center">954</td><td align="center">Two lightblue glowing spheres</td></tr>
+<tr><td align="center">955</td><td align="center">Three spinning flame spheres</td></tr>
+<tr><td align="center">956</td><td align="center">Flame</td></tr>
+<tr><td align="center">957</td><td align="center">Spinning planetlike sphere</td></tr>
+<tr><td align="center">958</td><td align="center">Two flames</td></tr>
+<tr><td align="center">959</td><td align="center">Purple flame</td></tr>
+<tr><td align="center">960</td><td align="center">Small yellow explosion</td></tr>
+<tr><td align="center">961</td><td align="center">Cartoony whirlwind</td></tr>
+<tr><td align="center">962</td><td align="center">Rising fire</td></tr>
+<tr><td align="center">963</td><td align="center">Dark filter (like Stone Curse)</td></tr>
+<tr><td align="center">964</td><td align="center">Same as 920</td></tr>
+<tr><td align="center">965</td><td align="center">Small white explosion</td></tr>
+<tr><td align="center">966</td><td align="center">Bone crack</td></tr>
+<tr><td align="center">967</td><td align="center">Another little explosion</td></tr>
+</tbody></table>
+<h1><a class="header" href="#eathena-job-system" id="eathena-job-system">eAthena Job System</a></h1>
+<p><img src="https://img.shields.io/badge/Last%20Updated-2013%2F02%2F09-blue" alt="last_updated" /> <img src="https://img.shields.io/badge/Docs-eAthena%20Job%20System-orange" alt="docs" /> <img src="https://img.shields.io/badge/By-Skotlex-red" alt="by" /></p>
+<h3><a class="header" href="#description-1" id="description-1">Description</a></h3>
+<p>A reference description of eA's inner job system (for use in scripts through the eaclass and roclass script commands).</p>
+<h3><a class="header" href="#preface" id="preface">Preface:</a></h3>
+<p>Most scripters are aware of the class values used in RO and their constants
+specified in src/map/script_constants.hpp. Each class has a number associated
+to it for referencing, so when someone's class is 9 that means they are a
+wizard. However, this list of job numbers has no real order behind it, and
+no logic behind it's assignation.</p>
+<p>You can add 3999 to a job to get their rebirth ID, but if you try to do the
+same to get the Baby class ID, that fails on the super Baby class. Also,
+there's no way to calculate, from a given first class, which classes would
+be their &quot;evolution&quot;. That is, given the Archer's ID, you cannot just add
+a value that will return you &quot;Hunter&quot;, and will still work if applied to
+the other classes. It didn't help much when they added Taekwon Boy, a first
+class, with an ID of 4046, and much later they added Ninja/Gunslinger with
+the IDs 25/24. How do you identify a first class on all this mess without
+recurring to very ugly range checks?</p>
+<h3><a class="header" href="#the-ea-job-system" id="the-ea-job-system">The eA Job System:</a></h3>
+<p>Since the code also required to do this kind of checks for various skills
+(the Soul Linker Spirit buffs specifically come to mind), an alternate job
+ID system was developed, which attempts to make more sense and make it
+easier to check where a particular job stands in relation to the rest.</p>
+<p>The scheme consists in that every job can be broken down by 3 criteria:</p>
+<h4><a class="header" href="#1---base-job" id="1---base-job">1 - Base Job:</a></h4>
+<p>This determines to which class-tree a job belongs. All jobs can be
+traced back to their root. The base job of all classes has to be one of the
+following:</p>
+<table><thead><tr><th align="center">eA Code</th><th align="center">Hex Code</th></tr></thead><tbody>
+<tr><td align="center">EAJ_NOVICE</td><td align="center">0x0</td></tr>
+<tr><td align="center">EAJ_SWORDMAN</td><td align="center">0x1</td></tr>
+<tr><td align="center">EAJ_MAGE</td><td align="center">0x2</td></tr>
+<tr><td align="center">EAJ_ARCHER</td><td align="center">0x3</td></tr>
+<tr><td align="center">EAJ_ACOLYTE</td><td align="center">0x4</td></tr>
+<tr><td align="center">EAJ_MERCHANT</td><td align="center">0x5</td></tr>
+<tr><td align="center">EAJ_THIEF</td><td align="center">0x6</td></tr>
+<tr><td align="center">EAJ_TAEKWON</td><td align="center">0x7</td></tr>
+<tr><td align="center">EAJ_GUNSLINGER</td><td align="center">0x9</td></tr>
+<tr><td align="center">EAJ_NINJA</td><td align="center">0x0A</td></tr>
+<tr><td align="center">EAJ_GANGSI</td><td align="center">0x0D</td></tr>
+<tr><td align="center">EAJ_SUMMONER</td><td align="center">0x10</td></tr>
+</tbody></table>
+<h4><a class="header" href="#2---branch" id="2---branch">2 - Branch:</a></h4>
+<p>All classes can be classified as <strong>1st Class</strong>, <strong>2-1 Class</strong> or <strong>2-2 Class</strong>:</p>
+<table><thead><tr><th align="center">eA Code</th><th align="center">Hex Code</th></tr></thead><tbody>
+<tr><td align="center">EAJL_2_1</td><td align="center">0x100</td></tr>
+<tr><td align="center">EAJL_2_2</td><td align="center">0x200</td></tr>
+<tr><td align="center">EAJL_2</td><td align="center">0x300</td></tr>
+</tbody></table>
+<h4><a class="header" href="#3---type" id="3---type">3 - Type:</a></h4>
+<p>The third category is type. Classes can either be normal, rebirth/advanced, adopted, or third class.</p>
+<table><thead><tr><th align="center">eA Code</th><th align="center">Hex Code</th></tr></thead><tbody>
+<tr><td align="center">EAJL_UPPER</td><td align="center">0x1000</td></tr>
+<tr><td align="center">EAJL_BABY</td><td align="center">0x2000</td></tr>
+<tr><td align="center">EAJL_THIRD</td><td align="center">0x4000</td></tr>
+</tbody></table>
+<h4><a class="header" href="#bringing-all-together" id="bringing-all-together">Bringing All Together</a></h4>
+<p>So using these three categories, any job class can be constructed from the
+others. Let's take a swordman, for example.</p>
+<p>The first step is basic swordman, with nothing else:</p>
+<p><strong>EAJ_SWORDMAN</strong></p>
+<p>If a swordman is adopted...</p>
+<table><thead><tr><th align="center">Bitwise Operations</th><th align="center">Result</th></tr></thead><tbody>
+<tr><td align="center">EAJ_SWORDMAN|EAJL_BABY</td><td align="center">EAJ_BABY_SWORDMAN</td></tr>
+</tbody></table>
+<p>The next step is to either become a 2-1 or a 2-2 job:</p>
+<table><thead><tr><th align="center">Bitwise Operations</th><th align="center">Result</th></tr></thead><tbody>
+<tr><td align="center">EAJ_SWORDMAN|EAJL_2_1</td><td align="center">EAJ_KNIGHT</td></tr>
+<tr><td align="center">EAJ_SWORDMAN|EAJL_2_2</td><td align="center">EAJ_CRUSADER</td></tr>
+</tbody></table>
+<p>Getting out the rebirth versions of a swordman:</p>
+<table><thead><tr><th align="center">Bitwise Operations</th><th align="center">Result</th></tr></thead><tbody>
+<tr><td align="center">EAJ_SWORDMAN|EAJL_UPPER</td><td align="center">EAJ_SWORDMAN_HIGH</td></tr>
+<tr><td align="center">EAJ_SWORDMAN|EAJL_2_1|EAJL_UPPER</td><td align="center">EAJ_LORD_KNIGHT</td></tr>
+<tr><td align="center">EAJ_SWORDMAN|EAJL_2_2|EAJL_UPPER</td><td align="center">EAJ_PALADIN</td></tr>
+</tbody></table>
+<p>Or getting the third job versions:</p>
+<table><thead><tr><th align="center">Bitwise Operations</th><th align="center">Result</th></tr></thead><tbody>
+<tr><td align="center">EAJ_SWORDMAN|EAJL_2_1|EAJL_THIRD</td><td align="center">EAJ_RUNE_KNIGHT</td></tr>
+<tr><td align="center">EAJ_SWORDMAN|EAJL_2_2|EAJL_THIRD</td><td align="center">EAJ_ROYAL_GUARD</td></tr>
+</tbody></table>
+<p>Why are we using the bitwise OR operand ('|') rather than just adding? Because
+the OR is wreck-proof:</p>
+<table><thead><tr><th align="center">Bitwise Operations</th><th align="center">Result</th></tr></thead><tbody>
+<tr><td align="center">EAJ_SWORDMAN_HIGH|EAJL_UPPER</td><td align="center">EAJ_SWORDMAN_HIGH</td></tr>
+</tbody></table>
+<p>If we had used addition, we would have gotten a completely different result.</p>
+<h3><a class="header" href="#the-eajl-ea-job-level-constants" id="the-eajl-ea-job-level-constants">The EAJL (eA Job Level) constants</a></h3>
+<p>There are a few constants which can be used to filter out and make job
+comparisons easier. The comparisons involve eA job IDs, not classic job
+IDs, using the eaclass() command explained in the next section.</p>
+<pre><code>set @eac, eaclass();
+</code></pre>
+<h4><a class="header" href="#eajl_2_1" id="eajl_2_1">EAJL_2_1:</a></h4>
+<p>Checks if the class is a 2-1 class:</p>
+<pre><code>if (@eac&amp;EAJL_2_1)
+    mes &quot;Using the classic 2-1 job, huh?&quot;;
+</code></pre>
+<h4><a class="header" href="#eajl_2_2" id="eajl_2_2">EAJL_2_2:</a></h4>
+<p>Checks if the class is a 2-2 class:</p>
+<pre><code>if (@eac&amp;EAJL_2_2)
+    mes &quot;Oh, a 2-2 job!&quot;;
+</code></pre>
+<h4><a class="header" href="#eajl_2" id="eajl_2">EAJL_2:</a></h4>
+<p>Checks if the class is a 2nd Class. If the check fails, you can be sure
+the character is a first class.</p>
+<pre><code>if (!(@eac&amp;EAJL_2))
+    mes &quot;Will you wait until Job 50 to change?&quot;;
+</code></pre>
+<h4><a class="header" href="#eajl_upper" id="eajl_upper">EAJL_UPPER:</a></h4>
+<p>Check if a class is Rebirth/Advanced:</p>
+<pre><code>if(@eac&amp;EAJL_UPPER)
+    mes &quot;It must have taken you a LONG time...&quot;;
+</code></pre>
+<h4><a class="header" href="#eajl_baby" id="eajl_baby">EAJL_BABY:</a></h4>
+<p>Check if a class is an adopted class.</p>
+<pre><code>if (@eac&amp;EAJL_BABY)
+    mes &quot;Don't you hate being weak?&quot;;
+</code></pre>
+<h4><a class="header" href="#eajl_third" id="eajl_third">EAJL_THIRD:</a></h4>
+<p>Checks if a class is a third job.</p>
+<pre><code>if(@eac&amp;EAJL_THIRD)
+    mes &quot;Wow, you've really grown!&quot;;
+</code></pre>
+<h4><a class="header" href="#eaj_uppermask" id="eaj_uppermask">EAJ_UPPERMASK:</a></h4>
+<p>The upper mask can be used to &quot;strip&quot; the upper/baby characteristics of a
+class, used when you want to know if someone is a certain class regardless
+of rebirth/adopted status. For example, the following code would go through
+for Monks, Champions and Baby Monks:</p>
+<pre><code>if ((@eac&amp;EAJ_UPPERMASK) == EAJ_MONK)
+    mes &quot;Aren't knuckles such a cool weapon?&quot;;
+</code></pre>
+<p>Note that if instead of EAJ_MONK you used EAJ_CHAMPION or EAJ_BABY_MONK,
+the check would had never passed, since the upper/baby state has been
+removed from the original job when checking.</p>
+<h4><a class="header" href="#eaj_basemask" id="eaj_basemask">EAJ_BASEMASK:</a></h4>
+<p>This mask strips also the 2nd class attributes. It can be used to check
+against the basic job of a character. For example, the following code would
+go through for Merchants (+Baby Merchant and High Merchant), Blacksmiths
+(+Baby blacksmiths and Whitesmith) and Alchemist (+Baby Alchemist and
++Creator):</p>
+<pre><code>if ((@eac&amp;EAJ_BASEMASK) == EAJ_MERCHANT)
+    mes &quot;Why I can't have discount like you guys do?&quot;;
+</code></pre>
+<p>Note that, like before, if you try to check versus any of the other
+classes  (High merchant, blacksmith, etc) instead of basic merchant, the
+check will  always fail for the same reasons previously explained.</p>
+<h4><a class="header" href="#eaj_thirdmask" id="eaj_thirdmask">EAJ_THIRDMASK:</a></h4>
+<p>This mask strips 3rd class attributes.  It will give the &quot;normal&quot; class of
+a third job, regardless of rebirth/adopted status.  When used on non-third
+class characters, it will return the second job, or, if that also doesn't
+exist, the first.</p>
+<pre><code>if ((@eac&amp;EAJ_THIRDMASK) == EAJ_WARLOCK_T)
+    mes &quot;You've gone through rebirth, I see.&quot;;
+</code></pre>
+<h2><a class="header" href="#the-script-commands-eaclass-roclass" id="the-script-commands-eaclass-roclass">The script commands eaclass, roclass:</a></h2>
+<p>These script commands are what you can use in scripts to convert between
+the RO classic job id, and eA's job system. The following script code
+demonstrates how to use these script commands to guess what your next job
+will be:</p>
+<pre><code>set @eac, eaclass();
+if (@eac&amp;EAJL_2)
+{	//2nd class
+    //If upper or baby, you can't rebirth
+    if (@eac&amp;(EAJL_UPPER|EAJL_BABY)) {
+        mes &quot;You can't go anywhere, can you?&quot;;
+        close;
+    }
+    //Note that if we remove the EAJL_BABY check up there, the following
+    //check will also fail, because there's no such thing as Rebirth-Baby
+    //classes.
+    set @newclass, roclass(@eac|EAJL_UPPER);
+    if (@newclass == -1) {
+        //Don't you hate this of SG and SL?
+        mes &quot;Haha, your class doesn't has a rebirth version yet!&quot;;
+        close;
+    }
+    mes &quot;Still dreaming of the day you become a &quot;+jobname(@newclass)+&quot;?&quot;;
+    close;
+}
+set @class1, roclass(@eac|EAJL_2_1);
+set @class2, roclass(@eac|EAJL_2_2);
+if (@class1 == -1) {
+    mes &quot;Looks like you are stuck forever on that class.&quot;;
+    close;
+}
+if (@class2 == -1) {
+    //Not quite true, currently the only 1st class that doesn't has two
+    //choices is Novice -&gt; Supernovice (see s.novice section below)
+    mes &quot;Looks like you have no choice but to be a &quot;+jobname(@class1)+&quot;.&quot;;
+    close;
+}
+mes &quot;Have you decided yet if you want to be a &quot;+jobname(@class1)+&quot; or a &quot;+jobname(@class2)+&quot;?&quot;;
+close;
+</code></pre>
+<h3><a class="header" href="#oddities-of-the-system" id="oddities-of-the-system">Oddities of the System:</a></h3>
+<p><strong>About Bards and Dancers:</strong></p>
+<p>These two classes are considered the same in eA's job system, since they
+both are the 2-2 job of archers. The only way to tell them apart is by
+using the gender of the character we are referring to. The script command
+roclass() will automatically use the gender of the attached player (or
+'male' if there's no such player), but you can also explicitly pass the
+gender to the script command when there's no player attached.</p>
+<p><strong>About Novices and Super Novices:</strong></p>
+<p>These are treated a bit differently from you'd expect. Because.. for
+instance, a novice is not supposed to be a 1st class, but it is considered
+as one on this tree system:</p>
+<table><thead><tr><th align="center">Bitwise Operations</th><th align="center">Result</th></tr></thead><tbody>
+<tr><td align="center">EAJ_NOVICE</td><td align="center">EAJ_NOVICE</td></tr>
+<tr><td align="center">EAJ_NOVICE|EAJL_2_1</td><td align="center">EAJ_SUPER_NOVICE</td></tr>
+<tr><td align="center">EAJ_NOVICE|EAJL_UPPER</td><td align="center">EAJ_NOVICE_HIGH</td></tr>
+<tr><td align="center">EAJ_NOVICE|EAJL_BABY</td><td align="center">EAJ_BABY</td></tr>
+<tr><td align="center">EAJ_NOVICE|EAJL_BABY|EAJL_2_1</td><td align="center">EAJ_SUPER_BABY</td></tr>
+</tbody></table>
+<p>So as you can see, on this job system, the Super Novice is treated as the
+2-1 job of a Novice, and the Novice job it's at the same level of the other
+1st jobs. Even though that may seem like a hindrance, it makes it very easy
+to add a check to discard Novice types from a quest:</p>
+<pre><code>if ((eaclass()&amp;EAJ_BASEMASK) == EAJ_NOVICE)
+    //Novice class detected.
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
