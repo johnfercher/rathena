@@ -7,7 +7,7 @@ A list of client-side effects sorted by ID.
 
 ### Details
 The following is a compiled list of visual and sound effects which the client
-can produce when receiving a packet with id 0x1f3 (01f3 <ID>.l <type>.l).
+can produce when receiving a packet with id `0x1f3` (01f3 <ID>.l <type>.l).
 Each list entry contains a number and a short description of the effect.
 You can produce these effects ingame by doing "@effect <number>".
 It's also possible to attach effects to item/npc scripts by using 'misceffect'.
